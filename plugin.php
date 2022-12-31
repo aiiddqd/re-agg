@@ -1,6 +1,6 @@
 <?php
 /*
-* Plugin Name: @ Content Kit LazyBlock
+* Plugin Name: @ ContentKit LazyBlock
 * Description: Lazy Blocks
 * Author: uptimizt
 * GitHub Plugin URI: https://github.com/uptimizt/content-kit-u7
