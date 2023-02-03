@@ -1,0 +1,34 @@
+.rating-table-item {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.rating-table-item .wp-block-buttons {
+    margin-top: 0.5rem;
+}
+.rating-table-item svg {
+    color: red;
+}
+
+.rating-table-item .rating-table-item-content {
+    flex-basis: 75%;
+
+}
+.rating-table-item .rating-table-item-image {
+    flex-basis: 20%;
+}
+
+.rating-table-item .wp-element-button {
+    padding: 0.5rem 0.8rem;
+
+}
+
+.rating-table-item .mod-review .wp-element-button {
+    background-color: white;
+    color: gray;
+
+}

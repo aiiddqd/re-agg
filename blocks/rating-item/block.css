@@ -1,0 +1,12 @@
+.rating-item .rating-item-content {
+    display: flex;
+    gap: 1rem;
+}
+
+.rating-item .post-thumbnail {
+    flex-basis: 25%;
+}
+
+.rating-item .entry-wrapper {
+    flex-basis: 70%;
+}
