@@ -35,7 +35,7 @@ if (empty($features)) {
     $features = '';
 }
 if (empty($url)) {
-    if($product = wc_get_product($post_id)){
+    if ($product = wc_get_product($post_id)) {
         $url = wc_get_product($post_id)->add_to_cart_url();
     }
 }
@@ -83,7 +83,7 @@ if (empty($image)) {
                         сайт</a>
                 </div>
                 <!-- /wp:button -->
-                <?php if($url_internal): ?>
+                <?php if ($url_internal): ?>
                     <!-- wp:button {"className":"is-style-outline"} -->
                     <div class="wp-block-button is-style-outline">
                         <a class="wp-block-button__link wp-element-button" href="<?= $url_internal ?>"
