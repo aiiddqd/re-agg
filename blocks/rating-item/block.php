@@ -43,10 +43,12 @@ if (empty($image)) {
     $image = wp_get_attachment_image($image['id']);
 }
 
+$article_id = $attributes['blockId'];
+
 
 ?>
 <div class="rating-item">
-    <article id="article-<?= $post_id; ?>">
+    <article id="<?= $article_id; ?>">
         <div class="rating-item-content">
             <figure class="post-thumbnail">
                 <a href="<?= $url ?>" rel="bookmark" tabindex="-1" target="_blank" aria-hidden="true">

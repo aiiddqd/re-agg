@@ -13,9 +13,9 @@ foreach ($blocks as $item) {
     if ($item['blockName'] == 'lazyblock/rating-item') {
         $items[] = $item;
     }
-
-
 }
+
+
 
 // var_dump($items);
 foreach ($items as $item) {
@@ -24,14 +24,18 @@ foreach ($items as $item) {
     $post_id = url_to_postid($url_internal);
 
     if (empty($post_id)) {
-        continue;
+        $post_id = 0;
     }
 
+    $name = $item['attrs']['name'] ?? null;
     $excerpt_item = $item['attrs']['excerpt'] ?? null;
     $features = $item['attrs']['features'] ?? null;
     $url = $item['attrs']['url'] ?? null;
     $image = $item['attrs']['image'] ?? null;
 
+    if (empty($name)) {
+        $name = get_the_title($post_id);
+    }
     if (empty($excerpt_item)) {
         $excerpt_item = get_the_excerpt($post_id);
     }
@@ -45,8 +49,15 @@ foreach ($items as $item) {
     if (empty($image)) {
         $image = get_the_post_thumbnail($post_id);
     } else {
-        $image = wp_get_attachment_image($image['id']);
+        // echo '<pre>';
+        // $r = serialize( html_entity_decode($image ));
+
+        // var_dump($r); 
+        $image = '';
+        // $image = wp_get_attachment_image($image['id']);
     }
+
+    $article_id = '#' . $item['attrs']['blockId'];
 
     $post = get_post($post_id);
 
@@ -56,7 +67,7 @@ foreach ($items as $item) {
             <div class="rating-table-inner--title">
                 <a target="_blank" href="<?= $url ?>">
                     <strong>
-                        <?= get_the_title($post_id) ?>
+                        <?= $name ?>
                     </strong>
                 </a>
             </div>
@@ -82,7 +93,7 @@ foreach ($items as $item) {
                 <!-- wp:button {"className":"is-style-outline"} -->
                 <div class="wp-block-button mod-review">
                     <a class="wp-block-button__link wp-element-button has-text-color"
-                        href="#article-<?= $post_id ?>">Обзор</a>
+                        href="<?= $article_id ?>">Обзор</a>
                 </div>
                 <!-- /wp:button -->
             </div>
