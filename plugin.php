@@ -76,6 +76,8 @@ function commone_style()
 function chg_template_path($template, $attributes, $block, $context)
 {
   $plugin_path = sprintf('%s/%s/block.php', __DIR__, $block['slug']);
+  $plugin_path = str_replace('lazyblock/', 'blocks/', $plugin_path);
+  // echo $plugin_path;
   if (file_exists($plugin_path)) {
     return $plugin_path;
   }

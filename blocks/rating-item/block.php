@@ -5,23 +5,29 @@
  * @var  string $context Preview context [editor,frontend].
  */
 
+echo 111;
+
 
 $url_internal = $attributes['url-internal'] ?? null;
 if (empty($url_internal)) {
-    return;
+    $url_internal = null;
+    $post_id = null;
+} else {
+    $post_id = url_to_postid($url_internal);
+    if (empty($post_id)) {
+        return;
+    }
 }
 
-$post_id = url_to_postid($url_internal);
-if (empty($post_id)) {
-    return;
-}
-
-$title = get_post($post_id)->post_title;
+$title = $attributes['name'] ?? null;
 $excerpt = $attributes['excerpt'] ?? null;
 $features = $attributes['features'] ?? null;
 $url = $attributes['url'] ?? null;
 $image = $attributes['image'] ?? null;
 
+if (empty($title)) {
+    $title = get_post($post_id)->post_title;
+}
 if (empty($excerpt)) {
     $excerpt = get_the_excerpt($post_id);
 }
@@ -29,7 +35,9 @@ if (empty($features)) {
     $features = '';
 }
 if (empty($url)) {
-    $url = wc_get_product($post_id)->add_to_cart_url();
+    if($product = wc_get_product($post_id)){
+        $url = wc_get_product($post_id)->add_to_cart_url();
+    }
 }
 
 if (empty($image)) {
@@ -75,12 +83,14 @@ if (empty($image)) {
                         сайт</a>
                 </div>
                 <!-- /wp:button -->
-                <!-- wp:button {"className":"is-style-outline"} -->
-                <div class="wp-block-button is-style-outline">
-                    <a class="wp-block-button__link wp-element-button" href="<?= $url_internal ?>"
-                        target="_blank">Обзор</a>
-                </div>
-                <!-- /wp:button -->
+                <?php if($url_internal): ?>
+                    <!-- wp:button {"className":"is-style-outline"} -->
+                    <div class="wp-block-button is-style-outline">
+                        <a class="wp-block-button__link wp-element-button" href="<?= $url_internal ?>"
+                            target="_blank">Обзор</a>
+                    </div>
+                    <!-- /wp:button -->
+                <?php endif; ?>
             </div>
             <!-- /wp:buttons -->
 

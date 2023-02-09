@@ -43,7 +43,7 @@ add_action( 'lzb/init', function() {
                 'placement' => 'content',
                 'width' => '100',
                 'hide_if_not_selected' => 'true',
-                'required' => 'true',
+                'required' => 'false',
                 'translate' => 'false',
                 'save_in_meta' => 'false',
                 'save_in_meta_name' => '',
