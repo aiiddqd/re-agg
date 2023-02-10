@@ -4,7 +4,7 @@
 * Description: Lazy Blocks
 * Author: uptimizt
 * GitHub Plugin URI: https://github.com/uptimizt/content-kit-u7
-* Version: 0.20220407
+* Version: 0.230210
 */
 
 namespace ContentKit\LazyBlocks;
