@@ -19,43 +19,41 @@ foreach ($blocks as $item) {
 
 // var_dump($items);
 foreach ($items as $item) {
-    $url_internal = $item['attrs']['url-internal'];
+    $url_internal = $item['attrs']['url-internal'] ?? null;
 
-    $post_id = url_to_postid($url_internal);
-
-    if (empty($post_id)) {
-        $post_id = 0;
-    }
+    
 
     $name = $item['attrs']['name'] ?? null;
     $excerpt_item = $item['attrs']['excerpt'] ?? null;
     $features = $item['attrs']['features'] ?? null;
     $url = $item['attrs']['url'] ?? null;
+    // $image = null;
     $image = $item['attrs']['image'] ?? null;
-
-    if (empty($name)) {
-        $name = get_the_title($post_id);
-    }
-    if (empty($excerpt_item)) {
-        $excerpt_item = get_the_excerpt($post_id);
-    }
-    if (empty($features)) {
-        $features = '';
-    }
-    if (empty($url)) {
-        $url = wc_get_product($post_id)->add_to_cart_url();
+    if($image){
+        $image = json_decode(urldecode($image),true);
+        $image = wp_get_attachment_image($image['id']);
     }
 
-    if (empty($image)) {
-        $image = get_the_post_thumbnail($post_id);
-    } else {
-        // echo '<pre>';
-        // $r = serialize( html_entity_decode($image ));
-
-        // var_dump($r); 
-        $image = '';
-        // $image = wp_get_attachment_image($image['id']);
+    if($url_internal){
+        $post_id = url_to_postid($url_internal);
+        if (empty($name)) {
+            $name = get_the_title($post_id);
+        }
+        if (empty($excerpt_item)) {
+            $excerpt_item = get_the_excerpt($post_id);
+        }
+        if (empty($features)) {
+            $features = '';
+        }
+        if (empty($url)) {
+            $url = wc_get_product($post_id)->add_to_cart_url();
+        }
+    
+        if (empty($image)) {
+            $image = get_the_post_thumbnail($post_id);
+        }
     }
+    
 
     $article_id = '#' . $item['attrs']['blockId'];
 
