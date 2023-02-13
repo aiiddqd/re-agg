@@ -19,10 +19,6 @@ foreach ($blocks as $item) {
 
 // var_dump($items);
 foreach ($items as $item) {
-    $url_internal = $item['attrs']['url-internal'] ?? null;
-
-    
-
     $name = $item['attrs']['name'] ?? null;
     $excerpt_item = $item['attrs']['excerpt'] ?? null;
     $features = $item['attrs']['features'] ?? null;
@@ -34,11 +30,16 @@ foreach ($items as $item) {
         $image = wp_get_attachment_image($image['id']);
     }
 
+    $url_internal = $item['attrs']['url-internal'] ?? null;
     if($url_internal){
         $post_id = url_to_postid($url_internal);
+        $product = wc_get_product($post_id);
+        do_action('qm/debug', $url_internal);
+        do_action('qm/debug', $post_id);
         if (empty($name)) {
             $name = get_the_title($post_id);
         }
+
         if (empty($excerpt_item)) {
             $excerpt_item = get_the_excerpt($post_id);
         }
@@ -46,8 +47,11 @@ foreach ($items as $item) {
             $features = '';
         }
         if (empty($url)) {
-            $url = wc_get_product($post_id)->add_to_cart_url();
+            $url = $product->add_to_cart_url();
+
         }
+        do_action('qm/debug', $url);
+
     
         if (empty($image)) {
             $image = get_the_post_thumbnail($post_id);
