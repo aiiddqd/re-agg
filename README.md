@@ -1,4 +1,4 @@
-# Gutenberg Blocks for review site and aggregators
+# Gutenberg Blocks for review sites and aggregators
 
 - rating - items and table
 - pros & cons
