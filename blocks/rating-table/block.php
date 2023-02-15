@@ -21,9 +21,9 @@ foreach ($blocks as $item) {
 foreach ($items as $item) {
     $name = $item['attrs']['name'] ?? null;
     $excerpt_item = $item['attrs']['excerpt'] ?? null;
-    $features = $item['attrs']['features'] ?? null;
+    $features = $item['attrs']['features'] ?? '';
     $url = $item['attrs']['url'] ?? null;
-    // $image = null;
+
     $image = $item['attrs']['image'] ?? null;
     if($image){
         $image = json_decode(urldecode($image),true);
@@ -34,8 +34,10 @@ foreach ($items as $item) {
     if($url_internal){
         $post_id = url_to_postid($url_internal);
         $product = wc_get_product($post_id);
-        do_action('qm/debug', $url_internal);
-        do_action('qm/debug', $post_id);
+    }
+    if($product){
+        // do_action('qm/debug', $url_internal);
+        // do_action('qm/debug', $post_id);
         if (empty($name)) {
             $name = get_the_title($post_id);
         }
@@ -43,10 +45,8 @@ foreach ($items as $item) {
         if (empty($excerpt_item)) {
             $excerpt_item = get_the_excerpt($post_id);
         }
-        if (empty($features)) {
-            $features = '';
-        }
         if (empty($url)) {
+            // var_dump($url);
             $url = $product->add_to_cart_url();
 
         }

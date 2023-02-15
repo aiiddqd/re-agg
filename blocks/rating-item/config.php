@@ -38,7 +38,7 @@ add_action( 'lzb/init', function() {
                 'name' => 'url-internal',
                 'default' => '',
                 'label' => 'url-internal',
-                'help' => '',
+                'help' => 'product url by WooCommerce - если есть, иначе заполняем поля ниже (если указать ссылку на продукт, то многие поля возьмутся из продукта сразу)',
                 'child_of' => '',
                 'placement' => 'content',
                 'width' => '100',

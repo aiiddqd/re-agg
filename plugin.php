@@ -9,7 +9,7 @@
 
 namespace ReAgg\LazyBlocks;
 
-$files = glob(__DIR__ . '/uncludes/*.php');
+$files = glob(__DIR__ . '/includes/*.php');
 foreach ($files as $file) {
   require_once $file;
 }

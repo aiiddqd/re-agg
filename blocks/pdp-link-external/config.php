@@ -35,7 +35,9 @@ namespace ReAgg\PDP\LinkExternal {
             return;
         }
 
-        $url = apply_filters('cpa_product_url_redirect', $url, $product->get_id());
+        // $url = apply_filters('cpa_product_url_redirect', $url, $product->get_id());
+        $url = apply_filters('pdp_link_external_redirect', $url, $product);
+
 
         $count = intval(get_post_meta($product->get_id(), 'pdp_link_external_count', true));
         $count++;
