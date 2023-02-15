@@ -1,0 +1,20 @@
+.pac-wrapper {
+    ul {
+        margin: 0rem;
+    }
+    .pac-list {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: 1px solid #dfdfdf;
+        margin-top: 0.5rem;
+
+        strong {
+            flex-basis: 30%;
+        }
+    }
+
+    article strong {
+        color: gray;
+        
+    }
+}

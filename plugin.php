@@ -7,7 +7,12 @@
 * Version: 0.230210
 */
 
-namespace ContentKit\LazyBlocks;
+namespace ReAgg\LazyBlocks;
+
+$files = glob(__DIR__ . '/uncludes/*.php');
+foreach ($files as $file) {
+  require_once $file;
+}
 
 add_filter('lzb/block_render/include_template', __NAMESPACE__ . '\\' . 'chg_template_path', 10, 4);
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\' . 'frontend');
