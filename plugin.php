@@ -1,9 +1,9 @@
 <?php
 /*
-* Plugin Name: @ ContentKit LazyBlock
-* Description: Lazy Blocks
+* Plugin Name: @ Re Agg
+* Description: Gutenberg Blocks for review sites and aggregators
 * Author: uptimizt
-* GitHub Plugin URI: https://github.com/uptimizt/content-kit-u7
+* GitHub Plugin URI: https://github.com/uptimizt/re-agg/
 * Version: 0.230210
 */
 
