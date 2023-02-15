@@ -7,6 +7,6 @@
 - post card
 - url source
 
-# dependency
+# dependencies
 - ACF
 - LazyBlocks
