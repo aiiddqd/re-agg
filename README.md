@@ -1,6 +1,12 @@
-# Media Kit and Blocks for Gutenberg editor 
+# Gutenberg Blocks for review site and aggregators
 
+- rating - items and table
+- pros & cons
 - table of contents
 - telegram widget
 - post card
 - url source
+
+# dependency
+- ACF
+- LazyBlocks
