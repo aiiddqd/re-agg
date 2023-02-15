@@ -6,8 +6,12 @@
   flex-wrap: wrap;
   border-top: 1px solid #dfdfdf;
   margin-top: 0.5rem; }
-  .pac-wrapper .pac-list strong {
-    flex-basis: 30%; }
+
+.pac-wrapper .pac-list strong {
+  flex-basis: 30%; }
+
+.pac-wrapper .pac-list ul {
+  flex-basis: 65%; }
 
 .pac-wrapper article strong {
   color: gray; }

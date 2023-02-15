@@ -15,9 +15,6 @@ foreach ($blocks as $item) {
     }
 }
 
-
-
-// var_dump($items);
 foreach ($items as $item) {
     $name = $item['attrs']['name'] ?? null;
     $excerpt_item = $item['attrs']['excerpt'] ?? null;
