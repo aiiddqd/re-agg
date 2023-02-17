@@ -6,6 +6,7 @@ $blocks = parse_blocks($post->post_content);
 
 $items = [];
 foreach ($blocks as $item) {
+
     if (empty($item['blockName'])) {
         continue;
     }
@@ -13,8 +14,18 @@ foreach ($blocks as $item) {
     if ($item['blockName'] == 'lazyblock/rating-item') {
         $items[] = $item;
     }
+    if(isset($item['innerBlocks'])){
+        foreach($item['innerBlocks'] as $item){
+            if ($item['blockName'] == 'lazyblock/rating-item') {
+                $items[] = $item;
+            }
+        }
+    }
+    
 }
 
+
+// var_dump($item2);
 foreach ($items as $item) {
     $name = $item['attrs']['name'] ?? null;
     $excerpt_item = $item['attrs']['excerpt'] ?? null;

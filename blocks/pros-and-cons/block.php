@@ -36,3 +36,4 @@ $cons = explode("\n", $attributes['cons'] ?? []);
         </div>
     </article>
 </div>
+
