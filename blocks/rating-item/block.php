@@ -5,39 +5,40 @@
  * @var  string $context Preview context [editor,frontend].
  */
 
+do_action('qm/debug', $attributes['blockId']);
 
+$post = get_post();
 
 $url_internal = $attributes['url-internal'] ?? null;
 $title = $attributes['name'] ?? null;
 $excerpt = $attributes['excerpt'] ?? null;
 $features = $attributes['features'] ?? null;
-$url = $attributes['url'] ?? null;
-$url = apply_filters('reagg/rating_item_url', $url);
+$url = reagg_get_url_for_block($attributes['blockId'], $post->ID);
 $image = $attributes['image'] ?? null;
 if($image){
     $image = wp_get_attachment_image($image['id']);
 }
 
 if ($url_internal) {
-    $post_id = url_to_postid($url_internal);
+    $product_id = url_to_postid($url_internal);
 }
 
-if($post_id){
+if($product_id){
     if (empty($image)) {
-        $image = get_the_post_thumbnail($post_id);
+        $image = get_the_post_thumbnail($product_id);
     } 
     if (empty($title)) {
-        $title = get_post($post_id)->post_title;
+        $title = get_post($product_id)->post_title;
     }
     if (empty($excerpt)) {
-        $excerpt = get_the_excerpt($post_id);
+        $excerpt = get_the_excerpt($product_id);
     }
     if (empty($features)) {
         $features = '';
     }
     if (empty($url)) {
-        if ($product = wc_get_product($post_id)) {
-            $url = wc_get_product($post_id)->add_to_cart_url();
+        if ($product = wc_get_product($product_id)) {
+            $url = wc_get_product($product_id)->add_to_cart_url();
         }
     }
 }

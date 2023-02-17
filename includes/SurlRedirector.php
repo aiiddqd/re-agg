@@ -16,11 +16,6 @@ namespace ReAgg\SurlRedirector {
     function url_replace_to_cpa_format($url)
     {
 
-        // if( ! current_user_can('administrator')){
-        //     return $url;
-        // }
-
-
         $url_parts = wp_parse_url($url);
         $data = get_data();
 

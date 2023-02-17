@@ -1,5 +1,50 @@
 <?php 
 
+add_action('wp', function(){
+
+    if(empty($_GET['go_post_url'])){
+        return;
+    }
+
+    $blockId = $_GET['go_post_url'];
+    $post = get_post();
+    $blocks = parse_blocks($post->post_content);
+    $blockWithUrl = null;
+    foreach($blocks as $item){
+        $itemBlockId = $item['attrs']['blockId'] ?? null;
+        if($itemBlockId == $blockId){
+            $blockWithUrl = $item;
+            break;
+        }
+
+        if(isset($item['innerBlocks'])){
+            foreach($item['innerBlocks'] as $item){
+                $itemBlockId = $item['attrs']['blockId'] ?? null;
+                if($itemBlockId == $blockId){
+                    $blockWithUrl = $item;
+                    break;
+                }
+            }
+        }
+
+    }
+
+    $url = $blockWithUrl['attrs']['url'] ?? null;
+    if(empty($url)){
+        return;
+    }
+
+    $url = apply_filters('reagg/rating_item_url', $url);
+
+    wp_redirect($url);
+    exit;
+});
+
+function reagg_get_url_for_block($blockId, $post_id){
+    $url = get_permalink($post_id);
+    return add_query_arg('go_post_url', $blockId, $url);
+}
+
 add_action( 'lzb/init', function() {
 
     lazyblocks()->add_block( array(

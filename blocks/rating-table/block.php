@@ -31,6 +31,7 @@ foreach ($items as $item) {
     $excerpt_item = $item['attrs']['excerpt'] ?? null;
     $features = $item['attrs']['features'] ?? '';
     $url = $item['attrs']['url'] ?? null;
+    $url = reagg_get_url_for_block($item['attrs']['blockId'], $post->ID);
 
     $image = $item['attrs']['image'] ?? null;
     if($image){
@@ -44,8 +45,6 @@ foreach ($items as $item) {
         $product = wc_get_product($post_id);
     }
     if($product){
-        // do_action('qm/debug', $url_internal);
-        // do_action('qm/debug', $post_id);
         if (empty($name)) {
             $name = get_the_title($post_id);
         }
