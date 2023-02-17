@@ -6,19 +6,19 @@
  */
 
 namespace ReAgg\SurlRedirector {
-    // add_filter('block_redirect_external_url', __NAMESPACE__ . '\\url_replace_to_cpa_format');
-    add_filter('pdp_link_external_redirect', __NAMESPACE__ . '\\url_replace_to_cpa_format', 11, 2);
+    add_filter('reagg/rating_item_url', __NAMESPACE__ . '\\url_replace_to_cpa_format');
+    add_filter('pdp_link_external_redirect', __NAMESPACE__ . '\\url_replace_to_cpa_format', 11);
 
     add_action('init', __NAMESPACE__ . '\\add_acf');
 
     // add_action('template_redirect', __NAMESPACE__ . '\\redirect_by_rbid');
 
-    function url_replace_to_cpa_format($url, \WC_Product_External $product)
+    function url_replace_to_cpa_format($url)
     {
 
-        if( ! current_user_can('administrator')){
-            return $url;
-        }
+        // if( ! current_user_can('administrator')){
+        //     return $url;
+        // }
 
 
         $url_parts = wp_parse_url($url);

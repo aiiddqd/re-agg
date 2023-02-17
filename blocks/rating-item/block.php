@@ -5,46 +5,44 @@
  * @var  string $context Preview context [editor,frontend].
  */
 
-$url_internal = $attributes['url-internal'] ?? null;
-if (empty($url_internal)) {
-    $url_internal = null;
-    $post_id = null;
-} else {
-    $post_id = url_to_postid($url_internal);
-    if (empty($post_id)) {
-        return;
-    }
-}
 
+
+$url_internal = $attributes['url-internal'] ?? null;
 $title = $attributes['name'] ?? null;
 $excerpt = $attributes['excerpt'] ?? null;
 $features = $attributes['features'] ?? null;
 $url = $attributes['url'] ?? null;
+$url = apply_filters('reagg/rating_item_url', $url);
 $image = $attributes['image'] ?? null;
-
-if (empty($title)) {
-    $title = get_post($post_id)->post_title;
-}
-if (empty($excerpt)) {
-    $excerpt = get_the_excerpt($post_id);
-}
-if (empty($features)) {
-    $features = '';
-}
-if (empty($url)) {
-    if ($product = wc_get_product($post_id)) {
-        $url = wc_get_product($post_id)->add_to_cart_url();
-    }
-}
-
-if (empty($image)) {
-    $image = get_the_post_thumbnail($post_id);
-} else {
+if($image){
     $image = wp_get_attachment_image($image['id']);
 }
 
-$article_id = $attributes['blockId'];
+if ($url_internal) {
+    $post_id = url_to_postid($url_internal);
+}
 
+if($post_id){
+    if (empty($image)) {
+        $image = get_the_post_thumbnail($post_id);
+    } 
+    if (empty($title)) {
+        $title = get_post($post_id)->post_title;
+    }
+    if (empty($excerpt)) {
+        $excerpt = get_the_excerpt($post_id);
+    }
+    if (empty($features)) {
+        $features = '';
+    }
+    if (empty($url)) {
+        if ($product = wc_get_product($post_id)) {
+            $url = wc_get_product($post_id)->add_to_cart_url();
+        }
+    }
+}
+
+$article_id = $attributes['blockId'];
 
 ?>
 <div class="rating-item">
