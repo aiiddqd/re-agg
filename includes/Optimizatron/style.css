@@ -1,0 +1,15 @@
+#wp-admin-bar-delete-cache {
+    display: none;
+}
+
+#wp-admin-bar-top-secondary {
+      display: none;
+}
+
+#wp-admin-bar-new-content .ab-label {
+    display: none;
+}
+
+#wpadminbar .googlesitekit-wp-adminbar .googlesitekit-wp-adminbar__label {
+    display: none !important;
+}
