@@ -31,7 +31,9 @@ foreach ($items as $item) {
     $excerpt_item = $item['attrs']['excerpt'] ?? null;
     $features = $item['attrs']['features'] ?? '';
     $url = $item['attrs']['url'] ?? null;
-    $url = reagg_get_url_for_block($item['attrs']['blockId'], $post->ID);
+    if($url){
+        $url = reagg_get_url_for_block($item['attrs']['blockId'], $post->ID);
+    }
 
     $image = $item['attrs']['image'] ?? null;
     if($image){

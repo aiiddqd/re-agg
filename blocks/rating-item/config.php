@@ -2,11 +2,11 @@
 
 add_action('wp', function(){
 
-    if(empty($_GET['go_post_url'])){
+    if(empty($_GET['go_block_url'])){
         return;
     }
 
-    $blockId = $_GET['go_post_url'];
+    $blockId = $_GET['go_block_url'];
     $post = get_post();
     $blocks = parse_blocks($post->post_content);
     $blockWithUrl = null;
@@ -30,6 +30,7 @@ add_action('wp', function(){
     }
 
     $url = $blockWithUrl['attrs']['url'] ?? null;
+    // dd($url);
     if(empty($url)){
         return;
     }
@@ -42,7 +43,7 @@ add_action('wp', function(){
 
 function reagg_get_url_for_block($blockId, $post_id){
     $url = get_permalink($post_id);
-    return add_query_arg('go_post_url', $blockId, $url);
+    return add_query_arg('go_block_url', $blockId, $url);
 }
 
 add_action( 'lzb/init', function() {

@@ -13,7 +13,10 @@ $url_internal = $attributes['url-internal'] ?? null;
 $title = $attributes['name'] ?? null;
 $excerpt = $attributes['excerpt'] ?? null;
 $features = $attributes['features'] ?? null;
-$url = reagg_get_url_for_block($attributes['blockId'], $post->ID);
+$url = $attributes['url'] ?? null;
+if($url){
+    $url = reagg_get_url_for_block($attributes['blockId'], $post->ID);
+}
 $image = $attributes['image'] ?? null;
 if($image){
     $image = wp_get_attachment_image($image['id']);
