@@ -5,8 +5,6 @@
  * @var  string $context Preview context [editor,frontend].
  */
 
-do_action('qm/debug', $attributes['blockId']);
-
 $post = get_post();
 
 $url_internal = $attributes['url-internal'] ?? null;

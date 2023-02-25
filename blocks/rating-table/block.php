@@ -24,8 +24,6 @@ foreach ($blocks as $item) {
     
 }
 
-
-// var_dump($item2);
 foreach ($items as $item) {
     $name = $item['attrs']['name'] ?? null;
     $excerpt_item = $item['attrs']['excerpt'] ?? null;
@@ -55,12 +53,9 @@ foreach ($items as $item) {
             $excerpt_item = get_the_excerpt($post_id);
         }
         if (empty($url)) {
-            // var_dump($url);
             $url = $product->add_to_cart_url();
 
         }
-        do_action('qm/debug', $url);
-
     
         if (empty($image)) {
             $image = get_the_post_thumbnail($post_id);
