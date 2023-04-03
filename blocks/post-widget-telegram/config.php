@@ -1,6 +1,10 @@
 <?php 
 
+// dd(111);
+
+
 if ( function_exists( 'lazyblocks' ) ) :
+
 
 lazyblocks()->add_block( array(
     'id' => 18417,

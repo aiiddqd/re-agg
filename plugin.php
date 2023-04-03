@@ -18,7 +18,9 @@ add_filter('lzb/block_render/include_template', __NAMESPACE__ . '\\' . 'chg_temp
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\' . 'frontend');
 add_action('enqueue_block_editor_assets', __NAMESPACE__ . '\\' . 'backend');
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\' . 'commone_style');
-blocks_load_configs();
+add_action('init', function(){
+  blocks_load_configs();
+});
 
 
 function blocks_load_configs()
