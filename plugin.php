@@ -4,7 +4,7 @@
 * Description: Gutenberg Blocks for review sites and aggregators
 * Author: uptimizt
 * GitHub Plugin URI: https://github.com/uptimizt/re-agg/
-* Version: 0.230210
+* Version: 0.230407
 */
 
 namespace ReAgg\LazyBlocks;
@@ -18,9 +18,10 @@ add_filter('lzb/block_render/include_template', __NAMESPACE__ . '\\' . 'chg_temp
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\' . 'frontend');
 add_action('enqueue_block_editor_assets', __NAMESPACE__ . '\\' . 'backend');
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\' . 'commone_style');
-add_action('init', function(){
-  blocks_load_configs();
-});
+
+//@todo improve?
+add_action('init', __NAMESPACE__ . '\\blocks_load_configs');
+blocks_load_configs();
 
 
 function blocks_load_configs()
