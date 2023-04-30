@@ -80,7 +80,7 @@ add_action( 'lzb/init', function() {
         ),
         'controls' => array(
             'control_577bd7437a' => array(
-                'type' => 'text',
+                'type' => 'url',
                 'name' => 'url-internal',
                 'default' => '',
                 'label' => 'url-internal',
@@ -149,7 +149,7 @@ add_action( 'lzb/init', function() {
                 'multiline' => 'true',
             ),
             'control_d20add4ace' => array(
-                'type' => 'url',
+                'type' => 'text',
                 'name' => 'url',
                 'default' => '',
                 'label' => 'url',
