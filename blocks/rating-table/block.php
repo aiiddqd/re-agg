@@ -72,9 +72,7 @@ foreach ($items as $item) {
         <div class="rating-table-item-content">
             <div class="rating-table-inner--title">
                 <a target="_blank" href="<?= $url ?>">
-                    <strong>
-                        <?= $name ?>
-                    </strong>
+                    <strong><?= $name ?></strong>
                 </a>
             </div>
             <div>
@@ -91,9 +89,10 @@ foreach ($items as $item) {
             <?php endif; ?>
             <!-- wp:buttons -->
             <div class="wp-block-buttons"><!-- wp:button -->
-                <div class="wp-block-button">
-                    <a class="wp-block-button__link wp-element-button" target="_blank" href="<?= $url ?>">Перейти на
-                        сайт</a>
+                <div class="wp-block-button is-style-outline is-rating-table-main-btn">
+                    <a class="wp-block-button__link wp-element-button" target="_blank" href="<?= $url ?>">
+                    <span>Подробнее</span>
+                    </a>
                 </div>
                 <!-- /wp:button -->
                 <!-- wp:button {"className":"is-style-outline"} -->

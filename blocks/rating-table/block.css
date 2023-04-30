@@ -1,3 +1,16 @@
+.rating-table-inner--title a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.rating-table-item-content .wp-block-button__link {
+    padding: 5px 10px !important;
+}
+
+.is-rating-table-main-btn > .wp-block-button__link:not(:hover) {
+    color: red !important;
+}
+
 .rating-table-item {
     margin-bottom: 1rem;
     display: flex;
