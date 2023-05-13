@@ -8,8 +8,13 @@
 }
 
 .is-rating-table-main-btn > .wp-block-button__link:not(:hover) {
-    color: red !important;
+    color: #2196f3;
 }
+
+.rating-table-item-content .rating-table--excerpt {
+    line-height: 1;
+}
+
 
 .rating-table-item {
     margin-bottom: 1rem;

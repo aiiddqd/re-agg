@@ -75,7 +75,7 @@ foreach ($items as $item) {
                     <strong><?= $name ?></strong>
                 </a>
             </div>
-            <div>
+            <div class="rating-table--excerpt">
                 <small><?= $excerpt_item ?></small>
             </div>
             <?php if($features): ?>
