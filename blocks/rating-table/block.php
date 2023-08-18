@@ -75,9 +75,6 @@ foreach ($items as $item) {
                     <strong><?= $name ?></strong>
                 </a>
             </div>
-            <div class="rating-table--excerpt">
-                <small><?= $excerpt_item ?></small>
-            </div>
             <?php if($features): ?>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tags" viewBox="0 0 16 16">
@@ -86,7 +83,13 @@ foreach ($items as $item) {
                     </svg>
                     <small><?= $features ?></small>
                 </div>
+            <?php else: ?>
+                <div class="rating-table--excerpt">
+                    <small><?= $excerpt_item ?></small>
+                </div>
             <?php endif; ?>
+        </div>
+        <div class="rating-table-actions">
             <!-- wp:buttons -->
             <div class="wp-block-buttons"><!-- wp:button -->
                 <div class="wp-block-button is-style-outline is-rating-table-main-btn">
@@ -98,16 +101,12 @@ foreach ($items as $item) {
                 <!-- wp:button {"className":"is-style-outline"} -->
                 <div class="wp-block-button mod-review">
                     <a class="wp-block-button__link wp-element-button has-text-color"
-                        href="<?= $article_id ?>">Обзор</a>
+                        href="<?= $article_id ?>">Детали</a>
                 </div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->
-        </div>
-        <div class="rating-table-item-image">
-            <a href="<?= $url ?>" target="_blank" rel="noopener noreferrer">
-                <?= $image ?>
-            </a>
+
         </div>
     </div>
 <?php

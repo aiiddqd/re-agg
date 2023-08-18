@@ -25,9 +25,7 @@
     gap: 1rem;
 }
 
-.rating-table-item .wp-block-buttons {
-    margin-top: 0.5rem;
-}
+
 .rating-table-item svg {
     color: red;
 }
@@ -36,17 +34,21 @@
     flex-basis: 75%;
 
 }
-.rating-table-item .rating-table-item-image {
+.rating-table-item .rating-table-actions {
     flex-basis: 20%;
 }
 
 .rating-table-item .wp-element-button {
-    padding: 0.5rem 0.8rem;
+    padding: 5px 10px !important;
 
 }
 
 .rating-table-item .mod-review .wp-element-button {
     background-color: white;
     color: gray;
+    font-weight: 500 !important;
+}
 
+.rating-table-item .wp-block-button.is-style-outline .wp-block-button__link {
+    padding: 5px 10px;
 }
