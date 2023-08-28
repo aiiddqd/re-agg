@@ -2,9 +2,8 @@
 
 namespace ReAgg\PDP\LinkExternal {
 
+
     add_filter('woocommerce_product_single_add_to_cart_text', __NAMESPACE__ . '\\single_add_to_cart_text');
-
-
     remove_action('woocommerce_external_add_to_cart', 'woocommerce_external_add_to_cart', 30);
     add_action('woocommerce_external_add_to_cart', __NAMESPACE__ . '\\chg_woocommerce_external_add_to_cart', 10);
 
@@ -12,8 +11,8 @@ namespace ReAgg\PDP\LinkExternal {
     add_action('add_meta_boxes', function () {
         add_meta_box('wcpee_count', 'Переходы по ссылке', __NAMESPACE__ . '\\add_metabox', 'product', 'side');
     });
+    
     add_filter('woocommerce_product_add_to_cart_url', __NAMESPACE__ . '\\replace_url_for_ext_product', 11, 2);
-
     add_action('wp', __NAMESPACE__ . '\\redirect_to_url');
 
     function redirect_to_url()

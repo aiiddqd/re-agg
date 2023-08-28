@@ -9,7 +9,7 @@
 
 namespace ReAgg;
 
-add_action('1plugins_loaded', function(){
+add_action('plugins_loaded', function(){
   $files = glob(__DIR__ . '/includes/*.php');
   foreach ($files as $file) {
     require_once $file;
@@ -24,10 +24,6 @@ add_action('1plugins_loaded', function(){
 });
 
 
-
-
-//@todo improve?
-// add_action('init', __NAMESPACE__ . '\\' . 'blocks_load_configs');
 
 
 function blocks_load_configs(){
