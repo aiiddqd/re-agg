@@ -8,6 +8,6 @@
  */
 
 ?>
-<div class="my-test-block">
+<div class="product-url-source">
     <?php printf('<a href="%s" target="_blank">%s</a>', esc_html( $attributes['url'] ), esc_html( $attributes['text'] )); ?>
 </div>
