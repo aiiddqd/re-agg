@@ -5,11 +5,8 @@ namespace ReAgg\PDP\LinkExternal {
     add_filter('woocommerce_product_single_add_to_cart_text', __NAMESPACE__ . '\\single_add_to_cart_text');
 
 
-    // add_action('template_redirect', __NAMESPACE__ . '\\redirect_to_url');
-    add_action('init', function () {
-        remove_action('woocommerce_external_add_to_cart', 'woocommerce_external_add_to_cart', 30);
-        add_action('woocommerce_external_add_to_cart', __NAMESPACE__ . '\\chg_woocommerce_external_add_to_cart', 10);
-    }, 22);
+    remove_action('woocommerce_external_add_to_cart', 'woocommerce_external_add_to_cart', 30);
+    add_action('woocommerce_external_add_to_cart', __NAMESPACE__ . '\\chg_woocommerce_external_add_to_cart', 10);
 
     //Добавляем метабокс, который показывает число переходов
     add_action('add_meta_boxes', function () {

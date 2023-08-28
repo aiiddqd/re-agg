@@ -1,7 +1,5 @@
 <?php 
 
-// dd(111);
-
 
 if ( function_exists( 'lazyblocks' ) ) :
 

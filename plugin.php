@@ -7,42 +7,47 @@
 * Version: 0.230407
 */
 
-namespace ReAgg\LazyBlocks;
+namespace ReAgg;
 
-$files = glob(__DIR__ . '/includes/*.php');
-foreach ($files as $file) {
-  require_once $file;
-}
+add_action('1plugins_loaded', function(){
+  $files = glob(__DIR__ . '/includes/*.php');
+  foreach ($files as $file) {
+    require_once $file;
+  }
 
-// add_filter('lzb/block_render/include_template', __NAMESPACE__ . '\\' . 'chg_template_path', 10, 4);
-add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\' . 'frontend');
-add_action('enqueue_block_editor_assets', __NAMESPACE__ . '\\' . 'backend');
-add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\' . 'commone_style');
+  add_filter('lzb/block_render/include_template', __NAMESPACE__ . '\\' . 'chg_template_path', 10, 4);
+  add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\' . 'frontend');
+  add_action('enqueue_block_editor_assets', __NAMESPACE__ . '\\' . 'backend');
+  add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\' . 'commone_style');
+  blocks_load_configs();
+
+});
+
+
+
 
 //@todo improve?
-add_action('init', __NAMESPACE__ . '\\blocks_load_configs');
-blocks_load_configs();
+// add_action('init', __NAMESPACE__ . '\\' . 'blocks_load_configs');
 
 
-function blocks_load_configs()
-{
-  $files = glob(__DIR__ . '/blocks/*/config.php');
+function blocks_load_configs(){
+  $files = glob(__DIR__ . "/blocks/*/config.php");
   foreach ($files as $file) {
     require_once $file;
   }
 }
 
-function backend()
-{
-  $files = glob(__DIR__ . '/blocks/*/block.css');
+function backend(){
+  $files = glob(__DIR__ . "/blocks/*/block.css");
   foreach ($files as $file) {
-    $version = filemtime($file);
-    $block_name = basename(dirname($file));
-    $rel_path = str_replace(plugin_dir_path(__FILE__), '', $file);
-    $url = plugins_url($rel_path, __FILE__);
-    wp_enqueue_style($block_name . '-style', $url, [], $version);
+      $version = filemtime($file);
+      $block_name = basename(dirname($file));
+      $rel_path = str_replace(plugin_dir_path(__FILE__), '', $file);
+      $url = plugins_url($rel_path, __FILE__);
+      wp_enqueue_style($block_name . '-style', $url, [], $version);
+  }
 }
-}
+
 
 function frontend()
 {
