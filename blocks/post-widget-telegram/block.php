@@ -11,9 +11,11 @@ $data = new class($attributes){
     public $path = null;
 
     function __construct($attributes){
-        $url = $attributes['url'];
+        $url = $attributes['url'] ?? null;
         $url_parts = wp_parse_url($url);
-        $this->path = ltrim( $url_parts['path'], '/' );
+        if($url_parts){
+            $this->path = ltrim( $url_parts['path'], '/' );
+        }
     }
 };
 
