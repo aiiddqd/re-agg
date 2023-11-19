@@ -4,7 +4,7 @@
 * Description: Gutenberg Blocks for review sites and aggregators
 * Author: uptimizt
 * GitHub Plugin URI: https://github.com/uptimizt/re-agg/
-* Version: 0.230407
+* Version: 0.231107
 */
 
 namespace ReAgg;
