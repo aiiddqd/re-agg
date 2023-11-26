@@ -1,19 +1,14 @@
 {
-  "name": "content-kit",
+  "name": "reagg",
   "version": "1.0.0",
   "scripts": {
-    "dev": "sass -w . -o ."
+    "dev": "sass --no-source-map --update --watch blocks/rating-table:blocks/rating-table",
+    "dev2": "sass --no-source-map --update blocks/**/block.scss blocks/**/block.css",
+    "dev3": "sass --no-source-map --update block.scss:block.css blocks/*/*",
+    "dev4": "sass --no-source-map --update blocks/***:blocks/***",
+    "dev5": "sass --no-source-map --update blocks/**/block.scss:block.css",
+    "dev0": "node-sass -rw . -o ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uptimizt/content-kit.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/uptimizt/content-kit/issues"
-  },
-  "homepage": "https://github.com/uptimizt/content-kit#readme",
   "dependencies": {
     "sass": "^1.69.5"
   }
