@@ -2,7 +2,7 @@
   "name": "content-kit",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node-sass -rw . -o ."
+    "dev": "sass -w . -o ."
   },
   "repository": {
     "type": "git",
@@ -15,6 +15,6 @@
   },
   "homepage": "https://github.com/uptimizt/content-kit#readme",
   "dependencies": {
-    "node-sass": "^8.0.0"
+    "sass": "^1.69.5"
   }
 }
