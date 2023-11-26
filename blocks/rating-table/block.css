@@ -36,7 +36,7 @@
   flex-basis: 20%;
   display: flex;
   justify-content: space-between;
-  min-width: 9rem;
+  min-width: 7em;
 }
 @media (max-width: 768px) {
   .rating-table-items .rating-table-item .rating-table-item-actions {
@@ -58,8 +58,8 @@
   background-color: #e71d1d !important;
 }
 .rating-table-items .rating-table-item .rating-table-item-actions .mod-review .wp-element-button {
-  background-color: transparent;
-  color: gray;
+  background-color: transparent !important;
+  color: gray !important;
 }
 .rating-table-items .rating-table-item .rating-table-item-actions .mod-review :hover {
   transform: scale(1.05);

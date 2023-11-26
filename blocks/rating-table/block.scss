@@ -44,7 +44,7 @@
             flex-basis: 20%;
             display: flex;
             justify-content: space-between;
-            min-width: 9rem;
+            min-width: 7em;
     
             @media (max-width: 768px) {
                 flex-direction: row-reverse;
@@ -73,8 +73,8 @@
     
             .mod-review {
                 .wp-element-button {
-                    background-color: transparent;
-                    color: gray;
+                    background-color: transparent !important;
+                    color: gray !important;
                     // font-weight: 500 !important;
                 }
     
