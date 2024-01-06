@@ -91,6 +91,10 @@ function single_add_to_cart_text($text)
 
     $product = wc_get_product();
 
+    if(empty($product)){
+        return $text;
+    }
+
     if ('simple' == $product->get_type()) {
         $text = 'Заказать';
     }
