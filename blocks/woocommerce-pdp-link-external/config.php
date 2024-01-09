@@ -66,6 +66,12 @@ function replace_url_for_ext_product($url, $product)
 //Делаем ссылку с атрибутом target=_blank
 function chg_woocommerce_external_add_to_cart()
 {
+    global $product;
+    
+    if ( ! $product->add_to_cart_url() ) {
+        return;
+    }
+
     include_once(__DIR__ . '/block.php');
 }
 
